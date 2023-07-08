@@ -1,0 +1,18 @@
+                org 100
+                read 0, n
+more        load  1, n; This is a comment
+
+;Here is a comment that sit on its own line.
+                mult 1, fac
+                store 1, fac
+                load 1, n
+                sub 1, one
+                store 1, n
+                bp 1,more
+                write 0, fac
+                halt
+n              ds 100; just to show that you code can handle big areas.
+fac           dc 1
+one          dc 1
+test          dc 1234 ; show your program can handle big constants.
+                end
