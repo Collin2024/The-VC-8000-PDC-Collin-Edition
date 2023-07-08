@@ -86,7 +86,7 @@ a      dc      100
 
 TEST CASE #3
 
-         org 100
+         # org 100
                 read 0, n
 more        load  1, n; This is a comment
 
