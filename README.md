@@ -1,4 +1,3 @@
-# The-VC-8000-PDC-Collin-Edition
 The VC 8000 PDC Collin Edition
 
 PDC means Personal Decimal Computer
@@ -31,66 +30,66 @@ then click on edit then in the first box type the name of your file ("Test.txt")
 TEST CASES
 
 TEST CASE #1
-; file will read in 2 numbers and do a multi register operation on them
-        org    100
-; read in the 1st number
 
-collin      read    a
-; register location(1 in our case) = a
+        ; file will read in 2 numbers and do a multi register operation on them
+        org    100
+    ; read in the 1st number
+    collin      read    a
+    ; register location(1 in our case) = a
       load 1,a
-; save a in the specified register location(1)
+    ; save a in the specified register location(1)
       store 1,a
-; read in the second number
+    ; read in the second number
        read b
-; register location(6 in our case) = b
+    ; register location(6 in our case) = b
        load 6,b
-; save b in the specified register location(6)
+    ; save b in the specified register location(6)
        store 6,b
-; multiply the 2 registers together 
-; you can change this operation code to "addr" for addition "subr" for subtraction
-; "multr" for multiplication and "divr" for division (case insensitive)
+    ; multiply the 2 registers together 
+    ; you can change this operation code to "addr" for addition "subr" for subtraction
+    ; "multr" for multiplication and "divr" for division (case insensitive)
        MULTR 1,6
-; save the resultant in the specified register location
+    ; save the resultant in the specified register location
        store 1,a
-; a = the resultant
+    ; a = the resultant
        load 1,a
-; display the final answer (a)
+    ; display the final answer (a)
        write 1,a
-; repeat until the solution is less then or equal to 0
+    ; repeat until the solution is less then or equal to 0
        bp 1,collin
 
-; terminate 
+    ; terminate 
        halt
-x      dc      5
-y      DS      99
-b      dc      555
-a      dc      100000000
+    x      dc      5
+    y      DS      99
+    b      dc      555
+    a      dc      100000000
         end
 		
 TEST CASE #2
 
-;this is a test
+        ;this is a test
         org    100
-hi     read    x;this comment is immediately after statement
+        hi     read    x;this comment is immediately after statement
         load    1,x
-hay   store   1,y ; This is the another comment.
-          write    1,x
+        hay   store   1,y ; This is the another comment.
+        write    1,x
         bp      1,hi
         halt
     ;test comment
-x      dc      5
-y      ds      99
-b      dc      555
-a      dc      100
+    x      dc      5
+    y      ds      99
+    b      dc      555
+    a      dc      100
         end
 
 TEST CASE #3
 
-         # org 100
+         org 100
                 read 0, n
-more        load  1, n; This is a comment
+        more        load  1, n; This is a comment
 
-;Here is a comment that sit on its own line.
+    ;Here is a comment that sit on its own line.
                 mult 1, fac
                 store 1, fac
                 load 1, n
@@ -99,8 +98,8 @@ more        load  1, n; This is a comment
                 bp 0,more
                 write 0, fac
                 halt
-n              ds 100; just to show that you code can handle big areas.
-fac           dc 1
-one          dc 1
-test          dc 1234 ; show your program can handle big constants.
+                n              ds 100; just to show that you code can handle big areas.
+                fac           dc 1
+                one          dc 1
+                test          dc 1234 ; show your program can handle big constants.
                 end
