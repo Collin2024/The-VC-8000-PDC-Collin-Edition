@@ -58,7 +58,7 @@ collin      read    a
 ; repeat until the solution is less then or equal to 0
        bp 1,collin
 
-; terminate 
+; terminate  
        halt
 x      dc      5
 y      DS      99
