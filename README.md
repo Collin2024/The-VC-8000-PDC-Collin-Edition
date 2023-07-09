@@ -6,7 +6,7 @@ The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Ea
                 |2 digits       | 1 digit         |6 digits       |
                 |operation code | register number |address portion|  
 
-or
+### or
 
                 |2 digits       | 1 digit         |1 digit        |  5 digits|
                 |operation code | register number |register number| unused   |
