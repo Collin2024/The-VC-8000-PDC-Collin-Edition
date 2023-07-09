@@ -57,11 +57,12 @@ I will leave the notes on the implementation for reference for anyone looking at
 a fully working implementation that does everything it is supposed to but in addition I added some additional touches
 to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite animal) playing Audio
 
-
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.001.png)
 
 and Blue Screen Of Death when displaying errors.
 
-
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.002.jpeg)
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.003.jpeg)
 
 I hope you enjoy this take on the VC 8000 PDC and with that have a good day 
 
