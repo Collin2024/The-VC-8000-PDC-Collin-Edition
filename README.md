@@ -59,7 +59,7 @@ to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite an
 
 ![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.001.png)
 
-and Blue Screen Of Death when displaying errors.
+### and Blue Screen Of Death when displaying errors.
 
 ![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.002.jpeg)
 ![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.003.jpeg)
