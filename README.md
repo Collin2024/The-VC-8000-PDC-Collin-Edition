@@ -1,33 +1,70 @@
-The VC 8000 PDC Collin Edition
+# The VC8000 PDC Collin Edition
+The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Each word consists of 9 decimal digits. There is an additional 10 words of memory called registers. These are on chip memory.  The machine language instructions for the VC8000 is of the following form  Note: each has the same number of digits.
 
-PDC means Personal Decimal Computer
+ 
 
-A message from the author of this project
+                             |2 digits             | 1 digit                 |6 digits             |
+                             |operation code | register number |address portion|  
+
+or
+
+                             |2 digits             | 1 digit                 |1 digit               |  5 digits     |
+                             |operation code | register number |register number| unused      |
+
+ A machine language program is a sequence of machine language instructions stored in memory. The computer runs a machine language program by executing machine instructions stored in successive words of memory. The VC8000 machine assumes that the first instruction to be executed will be at location 100. The following are the machine language instructions for the VC8000.
+
+### NAME           OP. CODE     MEANING
+
+ADD                     01           Reg <-- c(Reg) + c(ADDR)   (The contents of the register specified in the instruction and of the memory location specified by the address portion of the instruction are added together. The result is placed in the register.):
+
+SUBTRACT         02            Reg <-- c(Reg) - c(ADDR)
+
+MULTIPLY           03            Reg <-- c(Reg) * c(ADDR)
+
+DIVIDE                 04            Reg <-- c(Reg) / c(ADDR)
+
+LOAD                   05            Reg <-- c(ADDR)
+
+STORE                06            ADDR <-- c(Reg)
+
+ADD REG            07            REG1 <--c(REG1) + c(REG2)   (Note: this is the second instruction format where two registers are specified.)
+
+SUB REG            08            REG1 <--c(REG1) - c(REG2)  
+
+MULT REG          09            REG1 <--c(REG1) * c(REG2)  
+
+DIV REG              10            REG1 <--c(REG1) / c(REG2)  
+
+READ                   11            A line is read in and the number found there is recorded in the specified memory address.  The register value is ignored.
+
+WRITE                 12            c(ADDR) is displayed  The register value is ignored.
+
+BRANCH              13           go to ADDR for next instruction.  The register value is ignored.
+
+BRANCH MINUS  14          go to ADDR if c(Reg) < 0
+
+BRANCH ZERO    15          go to ADDR if c(Reg) = 0
+
+BRANCH POSITIVE 16       go to ADDR if c(Reg) > 0
+
+HALT                    17           terminate execution.  The register value and address are ignored.
+
+## A message from the author of this project
 
 To whom it may concern
 This is a term project that I did while I was a student (sophmore) at Ramapo College in the CMPS 361 SOFTWARE_DESIGN course
 I will leave the notes on the implementation for reference for anyone looking at how it works. Not only is this 
 a fully working implementation that does everything it is supposed to but in addition I added some additional touches
-to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite animal) and Blue Screen Of Death when displaying errors.
+to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite animal) playing Audio
+
+
+
+and Blue Screen Of Death when displaying errors.
+
+
+
 I hope you enjoy this take on the VC 8000 PDC and with that have a good day 
-
-
-Assembling the VC 8000 PDC (assuming you are using Visual Studio)
-
-Enable sound
-
-To enable sound right click on the project and select properties
-select linker and input click on Additional Dependices and click on the drop down arrow
-then click on edit then in the first box type "winmm.lib" (without the quotes) then ok and apply
-now sound works in the sense that they are unformatted .wav files but this wasn't even required I wanted to go beyond the minimum requirements
-
-Enable Command line Arguements 
-
-right click on the project and select properties and then click on debugging
-and Command Line Arguements select and click on the drop down arrow
-then click on edit then in the first box type the name of your file ("Test.txt")
-
-TEST CASES
+TEST CASES cut and paste into the Test.txt file
 
 TEST CASE #1
 
@@ -103,3 +140,5 @@ TEST CASE #3
                 one          dc 1
                 test          dc 1234 ; show your program can handle big constants.
                 end
+
+
