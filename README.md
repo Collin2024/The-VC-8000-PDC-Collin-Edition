@@ -107,14 +107,14 @@ I hope you enjoy this take on the VC 8000 PDC and with that have a good day
 		
 ### TEST CASE #2
 
-        ;this is a test (reads in and displays number if its greater then 0 otherwise terminate)
-        org    100
+;this is a test (reads in and displays number if its greater then 0 otherwise terminate)
+org    100
 hi     read    x;this comment is immediately after statement
-        load    1,x
+load    1,x
 hay   store   1,y ; This is the another comment.
-          write    1,x
-        bp      1,hi
-        halt
+write    1,x
+bp      1,hi
+halt
     ;test comment
 x      dc      5
 y      ds      99
