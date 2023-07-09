@@ -144,4 +144,5 @@ I hope you enjoy this take on the VC 8000 PDC and with that have a good day
                 test          dc 1234 ; show your program can handle big constants.
                 end
 
-
+## To execute (you must have visual studio 2019 or newer) 
+To execute click on Collin's VC8000.vcxproj and hit F5 and wait for the results
