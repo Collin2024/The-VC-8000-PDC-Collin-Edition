@@ -1,7 +1,5 @@
 # The VC8000 PDC Collin Edition
-## Notes on The VC8000 PDC
-PDC means Personal Decimal Computer
-The VC8000 is a decimal computer with 1,000,000 words of memory. Each word consists of 9 decimal digits. There is an additional 10 words of memory called registers. These are on chip memory.  The machine language instructions for the VC8000 is of the following form  Note: each has the same number of digits.
+The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Each word consists of 9 decimal digits. There is an additional 10 words of memory called registers. These are on chip memory.  The machine language instructions for the VC8000 is of the following form  Note: each has the same number of digits.
 
  
 
