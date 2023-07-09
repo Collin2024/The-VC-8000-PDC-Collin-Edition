@@ -107,7 +107,7 @@ I hope you enjoy this take on the VC 8000 PDC and with that have a good day
 		
 ### TEST CASE #2
 
-                ;this is a test (reads in and displays number if its greater then 0 otherwise terminate)
+        ;this is a test (reads in and displays number if its greater then 0 otherwise terminate)
         org    100
 hi     read    x;this comment is immediately after statement
         load    1,x
