@@ -3,13 +3,13 @@ The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Ea
 
  
 
-                             |2 digits             | 1 digit                 |6 digits             |
-                             |operation code | register number |address portion|  
+                |2 digits       | 1 digit         |6 digits       |
+                |operation code | register number |address portion|  
 
 or
 
-                             |2 digits             | 1 digit                 |1 digit               |  5 digits     |
-                             |operation code | register number |register number| unused      |
+                |2 digits       | 1 digit         |1 digit        |  5 digits|
+                |operation code | register number |register number| unused   |
 
  A machine language program is a sequence of machine language instructions stored in memory. The computer runs a machine language program by executing machine instructions stored in successive words of memory. The VC8000 machine assumes that the first instruction to be executed will be at location 100. The following are the machine language instructions for the VC8000.
 
