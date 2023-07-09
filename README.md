@@ -1,154 +1,175 @@
-# The VC8000 PDC Collin Edition
-The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Each word consists of 9 decimal digits. There is an additional 10 words of memory called registers. These are on chip memory.  The machine language instructions for the VC8000 is of the following form  Note: each has the same number of digits.
+\# The VC8000 PDC Collin Edi  on 
 
- 
+The VC8000 PDC is a Personal Decimal Computer with 1,000,000 words of memory. Each word consists of 9 decimal digits. There is an addi  onal 10 words of memory called registers. These are on chip memory.  The machine language instruc  ons for the VC8000 is of the following form  Note: each has the same number of digits. 
 
-                             |2 digits             | 1 digit                 |6 digits             |
-                             |operation code | register number |address portion|  
+`                             `|2 digits             | 1 digit                 |6 digits             |                              |opera  on code | register number |address por  on|   
 
-or
+or 
 
-                             |2 digits             | 1 digit                 |1 digit               |  5 digits     |
-                             |operation code | register number |register number| unused      |
+`                             `|2 digits             | 1 digit                 |1 digit               |  5 digits     |                              |opera  on code | register number |register number| unused      |
 
- A machine language program is a sequence of machine language instructions stored in memory. The computer runs a machine language program by executing machine instructions stored in successive words of memory. The VC8000 machine assumes that the first instruction to be executed will be at location 100. The following are the machine language instructions for the VC8000.
+` `A machine language program is a sequence of machine language instruc  ons stored in memory. The computer runs a machine language program by execu  ng machine instruc  ons stored in successive words of memory. The VC8000 machine assumes that the first instruc  on to be executed will be at loca  on 100. The following are the machine language instruc  ons for the VC8000. 
 
-### NAME           OP. CODE     MEANING
+\### NAME           OP. CODE     MEANING 
 
-ADD                     01           Reg <-- c(Reg) + c(ADDR)   (The contents of the register specified in the instruction and of the memory location specified by the address portion of the instruction are added together. The result is placed in the register.):
+ADD                     01           Reg <-- c(Reg) + c(ADDR)   (The contents of the register specified in the instruc  on and of the memory loca  on specified by the address por  on of the instruc  on are added together. The result is placed in the register.): 
 
-SUBTRACT         02            Reg <-- c(Reg) - c(ADDR)
+SUBTRACT         02            Reg <-- c(Reg) - c(ADDR) MULTIPLY           03            Reg <-- c(Reg) \* c(ADDR) DIVIDE                 04            Reg <-- c(Reg) / c(ADDR) LOAD                   05            Reg <-- c(ADDR) STORE                06            ADDR <-- c(Reg) 
 
-MULTIPLY           03            Reg <-- c(Reg) * c(ADDR)
+ADD REG            07            REG1 <--c(REG1) + c(REG2)   (Note: this is the second instruc  on format where two registers are specified.) 
 
-DIVIDE                 04            Reg <-- c(Reg) / c(ADDR)
+SUB REG            08            REG1 <--c(REG1) - c(REG2)   MULT REG          09            REG1 <--c(REG1) \* c(REG2)   DIV REG              10            REG1 <--c(REG1) / c(REG2)   
 
-LOAD                   05            Reg <-- c(ADDR)
+READ                   11            A line is read in and the number found there is recorded in the specified memory address.  The register value is ignored. 
 
-STORE                06            ADDR <-- c(Reg)
+WRITE                 12            c(ADDR) is displayed  The register value is ignored. BRANCH              13           go to ADDR for next instruc  on.  The register value is ignored. BRANCH MINUS  14          go to ADDR if c(Reg) < 0 
 
-ADD REG            07            REG1 <--c(REG1) + c(REG2)   (Note: this is the second instruction format where two registers are specified.)
+BRANCH ZERO    15          go to ADDR if c(Reg) = 0 
 
-SUB REG            08            REG1 <--c(REG1) - c(REG2)  
+BRANCH POSITIVE 16       go to ADDR if c(Reg) > 0 
 
-MULT REG          09            REG1 <--c(REG1) * c(REG2)  
+HALT                    17           terminate execu  on.  The register value and address are ignored. 
 
-DIV REG              10            REG1 <--c(REG1) / c(REG2)  
+\## A message from the author of this project To whom it may concern 
 
-READ                   11            A line is read in and the number found there is recorded in the specified memory address.  The register value is ignored.
+This is a term project that I did while I was a student (sophmore) at Ramapo College in the CMPS 361 SOFTWARE\_DESIGN course 
 
-WRITE                 12            c(ADDR) is displayed  The register value is ignored.
+I will leave the notes on the implementa  on for reference for anyone looking at how it works. Not only is this  
 
-BRANCH              13           go to ADDR for next instruction.  The register value is ignored.
+a fully working implementa  on that does everything it is supposed to but in addi  on I added some addi  onal touches 
 
-BRANCH MINUS  14          go to ADDR if c(Reg) < 0
+to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite animal) playing Audio 
 
-BRANCH ZERO    15          go to ADDR if c(Reg) = 0
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.001.png)
 
-BRANCH POSITIVE 16       go to ADDR if c(Reg) > 0
+and Blue Screen Of Death when displaying errors. 
 
-HALT                    17           terminate execution.  The register value and address are ignored.
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.002.jpeg)
 
-A message from the author of this project
+![](Aspose.Words.eea1f821-c278-4146-ae95-e76377b9b504.003.jpeg)
 
-To whom it may concern
-This is a term project that I did while I was a student (sophmore) at Ramapo College in the CMPS 361 SOFTWARE_DESIGN course
-I will leave the notes on the implementation for reference for anyone looking at how it works. Not only is this 
-a fully working implementation that does everything it is supposed to but in addition I added some additional touches
-to this assembler like a HD COLOR ASCII graphic duck (my instructors favorite animal) and Blue Screen Of Death when displaying errors.
-I hope you enjoy this take on the VC 8000 PDC and with that have a good day 
+I hope you enjoy this take on the VC 8000 PDC and with that have a good day  
 
+TEST CASES cut and paste into the Test.txt file TEST CASE #1 
 
-Assembling the VC 8000 PDC (assuming you are using Visual Studio)
+- file will read in 2 numbers and do a mul   register opera  on on them 
 
-Enable sound
+`        `org    100 
 
-To enable sound right click on the project and select properties
-select linker and input click on Additional Dependices and click on the drop down arrow
-then click on edit then in the first box type "winmm.lib" (without the quotes) then ok and apply
-now sound works in the sense that they are unformatted .wav files but this wasn't even required I wanted to go beyond the minimum requirements
+- read in the 1st number 
 
-Enable Command line Arguements 
+`    `collin      read    a 
 
-right click on the project and select properties and then click on debugging
-and Command Line Arguements select and click on the drop down arrow
-then click on edit then in the first box type the name of your file ("Test.txt")
+- register loca  on(1 in our case) = a 
 
-TEST CASES
+`      `load 1,a 
 
-TEST CASE #1
+- save a in the specified register loca  on(1) 
 
-        ; file will read in 2 numbers and do a multi register operation on them
-        org    100
-    ; read in the 1st number
-    collin      read    a
-    ; register location(1 in our case) = a
-      load 1,a
-    ; save a in the specified register location(1)
-      store 1,a
-    ; read in the second number
-       read b
-    ; register location(6 in our case) = b
-       load 6,b
-    ; save b in the specified register location(6)
-       store 6,b
-    ; multiply the 2 registers together 
-    ; you can change this operation code to "addr" for addition "subr" for subtraction
-    ; "multr" for multiplication and "divr" for division (case insensitive)
-       MULTR 1,6
-    ; save the resultant in the specified register location
-       store 1,a
-    ; a = the resultant
-       load 1,a
-    ; display the final answer (a)
-       write 1,a
-    ; repeat until the solution is less then or equal to 0
-       bp 1,collin
+`      `store 1,a 
 
-    ; terminate 
-       halt
-    x      dc      5
-    y      DS      99
-    b      dc      555
-    a      dc      100000000
-        end
-		
-TEST CASE #2
+- read in the second number 
 
-        ;this is a test
-        org    100
-        hi     read    x;this comment is immediately after statement
-        load    1,x
-        hay   store   1,y ; This is the another comment.
-        write    1,x
-        bp      1,hi
-        halt
-    ;test comment
-    x      dc      5
-    y      ds      99
-    b      dc      555
-    a      dc      100
-        end
+`       `read b 
 
-TEST CASE #3
+- register loca  on(6 in our case) = b 
 
-         org 100
-                read 0, n
-        more        load  1, n; This is a comment
+`       `load 6,b 
 
-    ;Here is a comment that sit on its own line.
-                mult 1, fac
-                store 1, fac
-                load 1, n
-                sub 1, one
-                store 1, n
-                bp 0,more
-                write 0, fac
-                halt
-                n              ds 100; just to show that you code can handle big areas.
-                fac           dc 1
-                one          dc 1
-                test          dc 1234 ; show your program can handle big constants.
-                end
+- save b in the specified register loca  on(6) 
 
+`       `store 6,b 
 
+- mul  ply the 2 registers together  
+- you can change this opera  on code to "addr" for addi  on "subr" for subtrac  on 
+- "multr" for mul  plica  on and "divr" for division (case insensi  ve) 
+
+`       `MULTR 1,6 
+
+- save the resultant in the specified register loca  on 
+
+`       `store 1,a 
+
+- a = the resultant 
+
+`       `load 1,a 
+
+- display the final answer (a) 
+
+`       `write 1,a 
+
+- repeat un  l the solu  on is less then or equal to 0 
+
+`       `bp 1,collin 
+
+- terminate  
+
+`       `halt 
+
+`    `x      dc      5 
+
+`    `y      DS      99 
+
+`    `b      dc      555 
+
+`    `a      dc      100000000         end 
+
+TEST CASE #2 
+
+`        `;this is a test 
+
+`        `org    100 
+
+`        `hi     read    x;this comment is immediately a  er statement         load    1,x 
+
+`        `hay   store   1,y ; This is the another comment. 
+
+`        `write    1,x 
+
+`        `bp      1,hi 
+
+`        `halt 
+
+`    `;test comment 
+
+`    `x      dc      5 
+
+`    `y      ds      99 
+
+`    `b      dc      555 
+
+`    `a      dc      100 
+
+`        `end 
+
+TEST CASE #3 
+
+`         `org 100 
+
+`                `read 0, n 
+
+`        `more        load  1, n; This is a comment 
+
+`    `;Here is a comment that sit on its own line. 
+
+`                `mult 1, fac 
+
+`                `store 1, fac 
+
+`                `load 1, n 
+
+`                `sub 1, one 
+
+`                `store 1, n 
+
+`                `bp 0,more 
+
+`                `write 0, fac 
+
+`                `halt 
+
+`                `n              ds 100; just to show that you code can handle big areas.                 fac           dc 1 
+
+`                `one          dc 1 
+
+`                `test          dc 1234 ; show your program can handle big constants.                 end 
